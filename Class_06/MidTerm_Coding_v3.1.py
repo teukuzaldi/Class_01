@@ -98,9 +98,6 @@ with open(result_sheet_csv, 'w', newline='') as csvfile:
 print(f"Opening CSV file from this path: {result_sheet_csv}")
 print(f"Opening result folder from this path path: {Workspace}")
 
-# Result_Report_csv = f"{result_sheet_csv}"
-# path = os.path.abspath(Result_Report_csv)
-
 Result_Report_csv = f"{result_sheet_csv}"
 path = os.path.abspath(Result_Report_csv)
 os.startfile(path)
