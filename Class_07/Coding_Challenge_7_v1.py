@@ -3,15 +3,16 @@ import csv
 import os
 arcpy.env.overwriteOutput = True
 
-#Input the "Workspace" path below
+#User workspace input below__________________________________________________________
 Declare_workspace = r"D:\URI MESM\NRS528\Class_07\Class_07_CC\Workspace\species_data"
+#DO NOT alter or delete anything below this line_____________________________________
+
 
 if not os.path.exists(os.path.join(Declare_workspace, "Temp_folder")):
     os.mkdir(os.path.join(Declare_workspace, "Temp_folder"))
 if not os.path.exists(os.path.join(Declare_workspace, "output_file")):
     os.mkdir(os.path.join(Declare_workspace, "output_file"))
 
-#DO NOT alter or delete the path of (\Species_data\Swordfish_n_salmon.csv)
 Declare_csv = (os.path.join(Declare_workspace, "Swordfish_n_salmon.csv"))
 Temp_dir = (os.path.join(Declare_workspace, "Temp_folder"))
 Result_output = (os.path.join(Declare_workspace, "output_file"))
