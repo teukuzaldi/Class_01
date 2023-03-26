@@ -1,79 +1,79 @@
-# Task 1. Simple directory tree
+# # Task 1. Simple directory tree
+# #
+# # Replicate this tree of directories and subdirectories:
+# #
+# # ├── draft_code
+# # |   ├── pending
+# # |   └── complete
+# # ├── includes
+# # ├── layouts
+# # |   ├── default
+# # |   └── post
+# # |       └── posted
+# # └── site
+# #
+# #     Using os.system or os.mkdirs replicate this simple directory tree.
+# #     Delete the directory tree without deleting your entire hard drive.
 #
-# Replicate this tree of directories and subdirectories:
+# import os
+# os.mkdir('Task1') #I create this additional folder, so it will be easier to delete it later with 'import shutil'
 #
-# ├── draft_code
-# |   ├── pending
-# |   └── complete
-# ├── includes
-# ├── layouts
-# |   ├── default
-# |   └── post
-# |       └── posted
-# └── site
+# os.mkdir('Task1/Draft_code')
+# os.mkdir('Task1/Draft_code/Pending')
+# os.mkdir('Task1/Draft_code/Complete')
 #
-#     Using os.system or os.mkdirs replicate this simple directory tree.
-#     Delete the directory tree without deleting your entire hard drive.
-
-import os
-os.mkdir('Task1') #I create this additional folder, so it will be easier to delete it later with 'import shutil'
-
-os.mkdir('Task1/Draft_code')
-os.mkdir('Task1/Draft_code/Pending')
-os.mkdir('Task1/Draft_code/Complete')
-
-os.mkdir('Task1/Includes')
-
-os.mkdir('Task1/Layouts')
-os.mkdir('Task1/Layouts/Default')
-os.mkdir('Task1/Layouts/Post')
-os.mkdir('Task1/Layouts/Post/Posted')
-
-os.mkdir('Task1/Site')
-
-import shutil
-shutil.rmtree('Task1')
-
-# Task 2
-# 2. Push sys.argv to the limit
+# os.mkdir('Task1/Includes')
 #
-# Construct a rudimentary Python script that takes a series of inputs as a command from a bat file using sys.argv, and does something to them. The rules:
+# os.mkdir('Task1/Layouts')
+# os.mkdir('Task1/Layouts/Default')
+# os.mkdir('Task1/Layouts/Post')
+# os.mkdir('Task1/Layouts/Post/Posted')
 #
-#     Minimum of three arguments to be used.
-#     You must do something simple in 15 lines or less within the Python file.
-#     Print or file generated output should be produced.
-
-import sys
-input_name = str(input("Hi, I am YX Corp, what is your name? "))
-
-print(f'Oh hello {input_name} nice to meet you')
-print(f'tell me {input_name} what is your gender?')
-
-while True:
-    input_gender = input("Please enter your gender (Male/Female): ")
-    if input_gender.lower() == 'male':
-        print(f'well hello sir')
-        break
-    elif input_gender.lower() == 'female':
-        print(f'well hello miss')
-        break
-    else:
-        print(f'Invalid response, try again')
-
-input_age = int(input(f"How old are you {input_name}? "))
-if input_age > 30:
-    print(f'because you are {input_age} years old, you might be wiser than I thought')
-else:
-    print(f'{input_age} ?, really ? quite young, better go travel before 30')
-
-result = ("Basic information of our user" +'\n'+
-          "Name: " + str(input_name) +'\n'
-          +"Age: "+ str(input_age) +'\n'
-          +"Gender: "+ str(input_gender))
-
-with open("Client_Information.txt", "w") as f:
-    f.write(str(result))
-print(result)
+# os.mkdir('Task1/Site')
+#
+# import shutil
+# shutil.rmtree('Task1')
+#
+# # Task 2
+# # 2. Push sys.argv to the limit
+# #
+# # Construct a rudimentary Python script that takes a series of inputs as a command from a bat file using sys.argv, and does something to them. The rules:
+# #
+# #     Minimum of three arguments to be used.
+# #     You must do something simple in 15 lines or less within the Python file.
+# #     Print or file generated output should be produced.
+#
+# import sys
+# input_name = str(input("Hi, I am YX Corp, what is your name? "))
+#
+# print(f'Oh hello {input_name} nice to meet you')
+# print(f'tell me {input_name} what is your gender?')
+#
+# while True:
+#     input_gender = input("Please enter your gender (Male/Female): ")
+#     if input_gender.lower() == 'male':
+#         print(f'well hello sir')
+#         break
+#     elif input_gender.lower() == 'female':
+#         print(f'well hello miss')
+#         break
+#     else:
+#         print(f'Invalid response, try again')
+#
+# input_age = int(input(f"How old are you {input_name}? "))
+# if input_age > 30:
+#     print(f'because you are {input_age} years old, you might be wiser than I thought')
+# else:
+#     print(f'{input_age} ?, really ? quite young, better go travel before 30')
+#
+# result = ("Basic information of our user" +'\n'+
+#           "Name: " + str(input_name) +'\n'
+#           +"Age: "+ str(input_age) +'\n'
+#           +"Gender: "+ str(input_gender))
+#
+# with open("Client_Information.txt", "w") as f:
+#     f.write(str(result))
+# print(result)
 
 # 3. Working with CSV
 #
@@ -88,37 +88,50 @@ print(result)
 #
 import csv
 import math
-# #
+
+
+# Annual average for each year in the dataset.
+
+# Populate list that contains only the years
 years = []
-CO2 = []
 
 with open("CO2.txt") as co2_value:
     csv_reader = csv.reader(co2_value, delimiter=',')
-    line_count= 0
-
-    for row in csv_reader:
-        if line_count == 0
-            print ({', '. join(row)})
-            line_count += 1
-        else:
-            print
-
+    next(csv_reader)
+    for row in csv_reader: #1958-03-30,316.16
+        year, month, day = row[0].split("-")
+        if year not in years:
+            years.append(year)
 print(len(years))
-print(len(CO2))
 
-import csv
+co2_year = []
 
-rows = []
-with open("CO2.txt", "r") as f:
-        reader = csv.reader(f)
-        next(reader) # skip the header row
-        for row in reader:
-            rows.append(row)
+for year_search in years:
+    with open("CO2.txt") as co2_value:
+        csv_reader = csv.reader(co2_value, delimiter=',')
+        next(csv_reader)
+        for row in csv_reader: #1958-03-30,316.16
+            year, month, day = row[0].split("-")
+            if year_search == year:
+                co2_year.append(float(row[1]))
+        mean_year = sum(co2_year)/len(co2_year)
+        print("Year - " + str(year_search) + " - CO2 value - " + str(mean_year))
 
-            file = open("CO2.txt", "r")
-            file_contents = file.readlines()
-            counter = 1
-            for i in file_contents:
-                print(str(counter) + ": " + i.rstrip())  # .rstrip() removes new line characters i.e. \n
-                counter = counter + 1
-            file.close()
+
+#
+# import csv
+#
+# rows = []
+# with open("CO2.txt", "r") as f:
+#         reader = csv.reader(f)
+#         next(reader) # skip the header row
+#         for row in reader:
+#             rows.append(row)
+#
+#             file = open("CO2.txt", "r")
+#             file_contents = file.readlines()
+#             counter = 1
+#             for i in file_contents:
+#                 print(str(counter) + ": " + i.rstrip())  # .rstrip() removes new line characters i.e. \n
+#                 counter = counter + 1
+#             file.close()
