@@ -1,3 +1,7 @@
+# Tool title
+# Made by Zaldi
+# What does the tool do...
+
 import arcpy
 import os
 import csv
@@ -5,7 +9,7 @@ import csv
 arcpy.env.overwriteOutput = True
 
 #CHANGE THIS SECTION ONLY------------------------
-Workspace = r"D:\URI MESM\NRS528\Class_06_01_MidTerm_Coding_Challenge\Midterm_CC"
+Workspace = r"C:\Data\Students_2023\Zaldi\Class_06\Midterm_CC"
 #------------------------------------------------
 
 input_directory = Workspace
