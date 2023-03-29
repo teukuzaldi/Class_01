@@ -26,4 +26,5 @@ out_feature_class = r"D:\URI MESM\NRS528\Class_04\Class_04\Output\South_Kingstow
 where_clause = '"NAME" = \'SOUTH KINGSTOWN\'' #(Optional) if we want extract another boudaries
 
 # Execute Select
-arcpy.Select_analysis(in_features, out_feature_class, where_clause) #Should not be alter
+arcpy.Select_analysis(in_features, out_feature_class, where_clause) #Should not be altered
+
