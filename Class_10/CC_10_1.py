@@ -1,7 +1,11 @@
 import arcpy, os
 arcpy.env.overwriteOutput = True
 
+
+#Edit this line below___________________________________________________
 arcpy.env.workspace = r"D:\NRS528_Python\NRS528\Class_10\CC_10\Class_10"
+#Edit this line above___________________________________________________
+
 
 theworkspace = f"{arcpy.env.workspace}"+"\Landsat_data_lfs"
 if not os.path.exists(os.path.join(arcpy.env.workspace, "B_NDVI_Results")):
