@@ -2,7 +2,7 @@
 
 ## Hello guys!
 
-![This is an image](https://github.com/teukuzaldi/Class_01/blob/main/Zaldi.png?raw=true)
+![This is an image]([https://github.com/teukuzaldi/Class_01/blob/main/Zaldi.png?raw=true](https://github.com/teukuzaldi/NRS-528-Python-in-GIS/blob/main/Class_01/Zaldi.png?raw=true))
 
 I am **_Teuku Zaldiansyah_** this is my last semester of the MESM program 
 in the `Remote Sensing and Spatial Analysis track.`
