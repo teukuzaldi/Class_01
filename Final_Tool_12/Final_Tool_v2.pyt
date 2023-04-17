@@ -1,6 +1,6 @@
 #Created by Teuku Zaldiansyah
 #Date 04.17.2023
-#More Info go to : 
+#More Info please see this link : https://github.com/teukuzaldi/NRS-528-Python-in-GIS/blob/main/Final_Tool_12/README.md
 
 import arcpy
 from arcpy.sa import *
