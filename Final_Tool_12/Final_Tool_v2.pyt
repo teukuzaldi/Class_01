@@ -1,16 +1,7 @@
+#Created by Teuku Zaldiansyah
+#Date 04.17.2023
+#More Info go to : 
 
-#####
-# Step 3 - Make your own Python Toolbox!
-#####
-
-# Task - Using the code I provide below (basically , including the parameters that I have prepared for you (note, you can
-# find all the Python Toolbox Parameters here:
-# http://desktop.arcgis.com/en/arcmap/10.3/analyze/creating-tools/defining-parameters-in-a-python-toolbox.htm)
-
-# I want you to attempt to construct a working Python Toolbox. Hint the code is the same as we used before for the
-# traditional toolbox, however, I have changed how the arguements are provided to the tool.
-
-# Code for parameters function
 import arcpy
 from arcpy.sa import *
 arcpy.env.overwriteOutput = True
