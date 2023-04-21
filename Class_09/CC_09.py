@@ -1,7 +1,7 @@
 import arcpy, os
 arcpy.env.overwriteOutput = True
 # Set workspace environment - USER INPUT BELOW
-arcpy.env.workspace = r"D:\NRS528_Python\NRS528\Class_09\Class_09\Data\FHWP12"
+arcpy.env.workspace = r"C:\Data\Students_2023\Zaldi\Class_09\FHWP12"
 # Set workspace environment - USER INPUT ABOVE
 
 input_directory = arcpy.env.workspace
