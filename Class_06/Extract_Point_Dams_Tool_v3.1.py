@@ -1,6 +1,18 @@
-# Tool title
-# Made by Zaldi
-# What does the tool do...
+# Title: Documenting and Creating point layer in Boundaries for Rhode Island Town
+# Created by: Teuku Zaldiansyah | 02/14/2023 | Updated: 05/13/2023
+#
+# What does the tool do?
+# In short, It automatically counts and creates a point layer inside an area or boundaries,
+# organizing the layer in each folder, then it documented the result in a spreadsheet.
+#
+# The step executed below are:
+# - Clip the points into boundaries (RI Town)
+# - Project all of them into Rhode Island State Plane (Meter)
+# - Count each point inside the respective boundaries
+# - The resulting layer contains points in each boundary
+# - Automatically documented the point into a .csv file
+# - Organize file automatically for each town labeled with their respective town name.
+# -------------------------------------------------------------------------------------------------------------------
 
 import arcpy
 import os
@@ -9,7 +21,7 @@ import csv
 arcpy.env.overwriteOutput = True
 
 #CHANGE THIS SECTION ONLY------------------------
-Workspace = r"C:\Data\Students_2023\Zaldi\Class_06\Midterm_CC"
+Workspace = r"D:\NRS528_Python\NRS528\Class_06_01_MidTerm_Coding_Challenge\Class_06_v2\Midterm_Dams_Tools_v3.2\Point_Layer"
 #------------------------------------------------
 
 input_directory = Workspace
@@ -51,10 +63,10 @@ with open(Town_table) as boundaries_csv:
             in_features = Town_shp
             out_feature_class_select = os.path.join(outputDirectory, f"{town_name}"+"_boundary"+".shp")
             where_clause = f'"NAME" = \'{town_name}\''
-            # where_clause = f'"COUNTY" = \'{county}\''
+
             # Run Select
             arcpy.analysis.Select(in_features, out_feature_class_select, where_clause)
-#
+
 #Clip_Features-----------------------------------------------------------------------
 
             in_features = Dams_Input
@@ -67,24 +79,20 @@ with open(Town_table) as boundaries_csv:
             print('. . . clipping dams to '+f"{town_name}")
             if arcpy.Exists(out_feature_class_clip):
                 print(f"{town_name}"+"_dams_clipped"+".shp"+ " is created successfully!")
-# #-----------------------------------------------------------------------
+
 #Project(RI-Meter)---------------------------------------------------------
 
             input_features = out_feature_class_clip
-            # output data
             output_feature_class_projected = os.path.join(ResultDirectory, f"{town_name}"+"_dams_Meter"+".shp")
-            # create a spatial reference object for the output coordinate system
             out_coordinate_system = arcpy.SpatialReference(32130)
-            # run the tool
             arcpy.Project_management(input_features, output_feature_class_projected, out_coordinate_system)
 
             print('. . . projecting to meter')
             if arcpy.Exists(output_feature_class_projected):
                 print(f"{town_name}"+"_dams_Meter_output.shp"+" is created successfully!")
-#
-# #-----------------------------------------------------------------------
 
-            # Process: Get Count (Get Count) (management)
+#Get Count------------------------------------------------------------------
+
             Row_Count = arcpy.management.GetCount(in_rows=output_feature_class_projected)[0]
             dam_counts[town_name] = Row_Count
 
@@ -92,6 +100,8 @@ with open(Town_table) as boundaries_csv:
 
 print("\n"+r'Finalizing result into csv files'+
           "\n"+ "95% Completed"+"\n")
+
+#Creating CSV------------------------------------------------------------------
 
 with open(result_sheet_csv, 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
